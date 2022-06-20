@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let moves = ['rock', 'paper', 'scissors'];
+            let random = Math.floor(Math.random() * moves.length);
+            return moves[random];
+        }
+
+        function game(playerMove, computerMove) {
+            if (playerMove === 'rock' && computerMove === 'paper') return "You lose! Paper beats rock!";
+            if (computerMove === 'rock' && playerMove === 'paper') return "You win! Paper beats rock!";
+            if (computerMove === 'rock' && playerMove === 'scissors') return "You lose! Rock beats scissors!";
+            if (computerMove === 'scissors' && playerMove === 'rock') return "You win! Rock beats scissors!";
+            if (computerMove === 'scissors' && playerMove === 'paper') return "You lose! Scissors beats paper!";
+            if (computerMove === 'paper' && playerMove === 'scissors') return "You win! Scissors beats paper!";
+            if (computerMove === playerMove) return "Draw. Try again!";
+            else return "That's not a valid move!"
+        }
+
+        let computerSelection = computerPlay();
+        let playerSelectionRaw = prompt('What is your move? ');
+        let playerSelection = playerSelectionRaw.toLowerCase();
+
+        console.log(game(playerSelection, computerSelection));
+    </script>
+</body>
+</html>
