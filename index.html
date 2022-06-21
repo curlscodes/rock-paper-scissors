@@ -14,22 +14,42 @@
             return moves[random];
         }
 
+        let computerCounter = 0
+        let playerCounter = 0
+
         function game(playerMove, computerMove) {
-            if (playerMove === 'rock' && computerMove === 'paper') return "You lose! Paper beats rock!";
-            if (computerMove === 'rock' && playerMove === 'paper') return "You win! Paper beats rock!";
-            if (computerMove === 'rock' && playerMove === 'scissors') return "You lose! Rock beats scissors!";
-            if (computerMove === 'scissors' && playerMove === 'rock') return "You win! Rock beats scissors!";
-            if (computerMove === 'scissors' && playerMove === 'paper') return "You lose! Scissors beats paper!";
-            if (computerMove === 'paper' && playerMove === 'scissors') return "You win! Scissors beats paper!";
-            if (computerMove === playerMove) return "Draw. Try again!";
-            else return "That's not a valid move!"
+            let win = `You win. ${playerMove} beats ${computerMove}!` 
+            let lose = `You lose. ${computerMove} beats ${playerMove}!` 
+            let draw = `Draw. You both chose ${playerMove}!`; 
+
+            if (playerMove === 'rock' && computerMove === 'paper') {playerCounter++;
+                return lose}
+            if (computerMove === 'rock' && playerMove === 'scissors') {playerCounter++;
+                return lose}
+            if (computerMove === 'scissors' && playerMove === 'paper') {playerCounter++;
+                return lose}
+
+            if (computerMove === 'rock' && playerMove === 'paper') {computerCounter++;
+                return win}
+            if (computerMove === 'scissors' && playerMove === 'rock') {computerCounter++;
+                return win}
+            if (computerMove === 'paper' && playerMove === 'scissors') {computerCounter++;
+                return win}
+
+            else if (computerMove === playerMove) return draw;
+            else return "That's not a valid move!";
+
         }
 
-        let computerSelection = computerPlay();
-        let playerSelectionRaw = prompt('What is your move? ');
-        let playerSelection = playerSelectionRaw.toLowerCase();
+        for(i = 1; i < 6; i++) {
+            let computerSelection = computerPlay();
+            let playerSelectionRaw = prompt('What is your move? ');
+            let playerSelection = playerSelectionRaw.toLowerCase();
+            console.log(game(playerSelection, computerSelection));
+        }
 
-        console.log(game(playerSelection, computerSelection));
+        console.log(`*** Score *** \nComputer:${computerCounter} \nPlayer:${playerCounter}`)
+
     </script>
 </body>
 </html>
