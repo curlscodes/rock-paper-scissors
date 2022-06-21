@@ -22,13 +22,13 @@
             if (computerMove === 'paper' && playerMove === 'rock'  
             || computerMove === 'rock' && playerMove === 'scissors'
             || computerMove === 'scissors' && playerMove === 'paper') 
-                {computerCounter++;
+                {cCounter++;
                 return lose}
 
             if (computerMove === 'rock' && playerMove === 'paper'
             || computerMove === 'scissors' && playerMove === 'rock' 
             || computerMove === 'paper' && playerMove === 'scissors') 
-                {playerCounter++;
+                {pCounter++;
                 return win}
 
             else if (computerMove === playerMove) return draw;
@@ -36,8 +36,8 @@
 
         }
 
-        let computerCounter = 0
-        let playerCounter = 0
+        let cCounter = 0
+        let pCounter = 0
 
         for(i = 0; i < 5; i++) {
             let computerSelection = computerPlay();
@@ -46,7 +46,7 @@
             console.log(game(playerSelection, computerSelection));
         }
 
-        console.log(`*** Score *** \nComputer:${computerCounter} \nPlayer:${playerCounter}`)
+        console.log(`*** Score *** \nComputer:${cCounter} \nPlayer:${pCounter}`)
 
     </script>
 </body>
