@@ -14,32 +14,21 @@
             return moves[random];
         }
 
-        let computerCounter = 0
-        let playerCounter = 0
-
         function game(playerMove, computerMove) {
             let win = `You win. ${playerMove} beats ${computerMove}!` 
             let lose = `You lose. ${computerMove} beats ${playerMove}!` 
             let draw = `Draw. You both chose ${playerMove}!`; 
 
-            if (playerMove === 'rock' && computerMove === 'paper') {
-                computerCounter++;
-                return lose}
-            if (computerMove === 'rock' && playerMove === 'scissors') {
-                computerCounter++;
-                return lose}
-            if (computerMove === 'scissors' && playerMove === 'paper') {
-                computerCounter++;
+            if (computerMove === 'paper' && playerMove === 'rock'  
+            || computerMove === 'rock' && playerMove === 'scissors'
+            || computerMove === 'scissors' && playerMove === 'paper') 
+                {computerCounter++;
                 return lose}
 
-            if (computerMove === 'rock' && playerMove === 'paper') {
-                playerCounter++;
-                return win}
-            if (computerMove === 'scissors' && playerMove === 'rock') {
-                playerCounter++;
-                return win}
-            if (computerMove === 'paper' && playerMove === 'scissors') {
-                playerCounter++;
+            if (computerMove === 'rock' && playerMove === 'paper'
+            || computerMove === 'scissors' && playerMove === 'rock' 
+            || computerMove === 'paper' && playerMove === 'scissors') 
+                {playerCounter++;
                 return win}
 
             else if (computerMove === playerMove) return draw;
@@ -47,7 +36,10 @@
 
         }
 
-        for(i = 1; i < 6; i++) {
+        let computerCounter = 0
+        let playerCounter = 0
+
+        for(i = 0; i < 5; i++) {
             let computerSelection = computerPlay();
             let playerSelectionRaw = prompt('What is your move? ');
             let playerSelection = playerSelectionRaw.toLowerCase();
