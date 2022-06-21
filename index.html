@@ -22,18 +22,24 @@
             let lose = `You lose. ${computerMove} beats ${playerMove}!` 
             let draw = `Draw. You both chose ${playerMove}!`; 
 
-            if (playerMove === 'rock' && computerMove === 'paper') {playerCounter++;
+            if (playerMove === 'rock' && computerMove === 'paper') {
+                computerCounter++;
                 return lose}
-            if (computerMove === 'rock' && playerMove === 'scissors') {playerCounter++;
+            if (computerMove === 'rock' && playerMove === 'scissors') {
+                computerCounter++;
                 return lose}
-            if (computerMove === 'scissors' && playerMove === 'paper') {playerCounter++;
+            if (computerMove === 'scissors' && playerMove === 'paper') {
+                computerCounter++;
                 return lose}
 
-            if (computerMove === 'rock' && playerMove === 'paper') {computerCounter++;
+            if (computerMove === 'rock' && playerMove === 'paper') {
+                playerCounter++;
                 return win}
-            if (computerMove === 'scissors' && playerMove === 'rock') {computerCounter++;
+            if (computerMove === 'scissors' && playerMove === 'rock') {
+                playerCounter++;
                 return win}
-            if (computerMove === 'paper' && playerMove === 'scissors') {computerCounter++;
+            if (computerMove === 'paper' && playerMove === 'scissors') {
+                playerCounter++;
                 return win}
 
             else if (computerMove === playerMove) return draw;
