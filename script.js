@@ -31,9 +31,15 @@ function game(playerMove, computerMove) {
             roundEl.innerText = `Draw. You both chose ${playerMove}!`;}
         
     else if (pCounter == 5) {
-        winnerEl.innerText = "You won!"
+        winnerEl.innerText = "You won!";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
     } else if (cCounter == 5) {
-        winnerEl.innerText = "You lost!"
+        winnerEl.innerText = "You lost!";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
     }
     pScoreEl.innerText = `Player:${pCounter}`
     cScoreEl.innerText = `Computer:${cCounter}`
