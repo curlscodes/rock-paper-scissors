@@ -7,48 +7,14 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-        function computerPlay() {
-            let moves = ['rock', 'paper', 'scissors'];
-            let random = Math.floor(Math.random() * moves.length);
-            return moves[random];
-        }
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div id="round"></div>
+    <div id="pScore"></div>
+    <div id="cScore"></div>
+    <div id="winner"></div>
 
-        function game(playerMove, computerMove) {
-            let win = `You win. ${playerMove} beats ${computerMove}!` 
-            let lose = `You lose. ${computerMove} beats ${playerMove}!` 
-            let draw = `Draw. You both chose ${playerMove}!`; 
-
-            if (computerMove === 'paper' && playerMove === 'rock'  
-            || computerMove === 'rock' && playerMove === 'scissors'
-            || computerMove === 'scissors' && playerMove === 'paper') 
-                {cCounter++;
-                return lose}
-
-            if (computerMove === 'rock' && playerMove === 'paper'
-            || computerMove === 'scissors' && playerMove === 'rock' 
-            || computerMove === 'paper' && playerMove === 'scissors') 
-                {pCounter++;
-                return win}
-
-            else if (computerMove === playerMove) return draw;
-            else return "That's not a valid move!";
-
-        }
-
-        let cCounter = 0
-        let pCounter = 0
-
-        while (pCounter < 5 && cCounter < 5) {
-            let computerSelection = computerPlay();
-            let playerSelectionRaw = prompt('What is your move? ');
-            let playerSelection = playerSelectionRaw.toLowerCase();
-            console.log(game(playerSelection, computerSelection));
-        }
-        
-
-        console.log(`*** Score *** \nComputer:${cCounter} \nPlayer:${pCounter}`)
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
