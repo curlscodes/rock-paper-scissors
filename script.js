@@ -12,6 +12,12 @@ function computerPlay() {
     return moves[random];
 }
 
+function disableBtn() {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+}
+
 function game(playerMove, computerMove) { 
 
     if (pCounter < 5 && cCounter < 5) 
@@ -33,14 +39,10 @@ function game(playerMove, computerMove) {
         
     if (pCounter == 5) {
         winnerEl.innerText = "You won!";
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorsBtn.disabled = true;
+        disableBtn()
     } else if (cCounter == 5) {
         winnerEl.innerText = "You lost!";
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorsBtn.disabled = true;
+        disableBtn()
     }
     pScoreEl.innerText = `Player: ${pCounter}`
     cScoreEl.innerText = `Computer: ${cCounter}`
