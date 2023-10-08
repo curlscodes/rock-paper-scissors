@@ -35,13 +35,17 @@ function game(playerMove, computerMove) {
         computerPlayAnnounce.innerText = `Computer chose ${computerMove}!`
     }
 
+    function capFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     if (pCounter < 5 && cCounter < 5) 
 
         if (computerMove === 'paper' && playerMove === 'rock'  
         || computerMove === 'rock' && playerMove === 'scissors'
         || computerMove === 'scissors' && playerMove === 'paper') 
             {cCounter++;
-            winloseEl.innerText = `You lose. ${computerMove} beats ${playerMove}!`
+            winloseEl.innerText = `You lose. ${capFirstLetter(computerMove)} beats ${playerMove}!`
             updateSides();
 }
             
@@ -49,7 +53,7 @@ function game(playerMove, computerMove) {
         || computerMove === 'scissors' && playerMove === 'rock' 
         || computerMove === 'paper' && playerMove === 'scissors') 
             {pCounter++;
-            winloseEl.innerText = `You win. ${playerMove} beats ${computerMove}!`
+            winloseEl.innerText = `You win. ${capFirstLetter(playerMove)} beats ${computerMove}!`
             updateSides();
 }
 
